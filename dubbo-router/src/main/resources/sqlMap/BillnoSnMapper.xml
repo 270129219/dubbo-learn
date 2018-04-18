@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dubbo.learn.domain.mapper.BillnoSnMapper" >
+  <resultMap id="BaseResultMap" type="com.dubbo.learn.domain.model.BillnoSn" >
+    <id column="BILLNOSN_SEQ" property="billnosnSeq" jdbcType="VARCHAR" />
+    <result column="SN" property="sn" jdbcType="VARCHAR" />
+    <result column="CHANNELID" property="channelid" jdbcType="VARCHAR" />
+    <result column="BANK_SEND_SN" property="bankSendSn" jdbcType="VARCHAR" />
+    <result column="TRAN_DATE" property="tranDate" jdbcType="VARCHAR" />
+    <result column="CHANNEL_BATCHNO" property="channelBatchno" jdbcType="VARCHAR" />
+    <result column="CHANNEL_DETAIL" property="channelDetail" jdbcType="VARCHAR" />
+    <result column="BANK_RECV_SN" property="bankRecvSn" jdbcType="VARCHAR" />
+    <result column="TRAN_TYPE" property="tranType" jdbcType="VARCHAR" />
+    <result column="STATE" property="state" jdbcType="VARCHAR" />
+    <result column="BATCHID" property="batchid" jdbcType="VARCHAR" />
+    <result column="DETAILID" property="detailid" jdbcType="VARCHAR" />
+    <result column="CHANNEL_RTNCODE" property="channelRtncode" jdbcType="VARCHAR" />
+    <result column="CHANNEL_RTNNOTE" property="channelRtnnote" jdbcType="VARCHAR" />
+    <result column="SEND_TIME" property="sendTime" jdbcType="TIMESTAMP" />
+    <result column="RECV_TIME" property="recvTime" jdbcType="TIMESTAMP" />
+    <result column="ACTUAL_AMOUNT" property="actualAmount" jdbcType="DECIMAL" />
+    <result column="CORPACCTNO" property="corpacctno" jdbcType="VARCHAR" />
+    <result column="CORPBANKNO" property="corpbankno" jdbcType="VARCHAR" />
+    <result column="CHECK_DATE" property="checkDate" jdbcType="VARCHAR" />
+    <result column="CORPACCTNAME" property="corpacctname" jdbcType="VARCHAR" />
+    <result column="OTHERACCTNO" property="otheracctno" jdbcType="VARCHAR" />
+    <result column="OTHERACCTNAME" property="otheracctname" jdbcType="VARCHAR" />
+    <result column="OTHERBANKNO" property="otherbankno" jdbcType="VARCHAR" />
+    <result column="FEECODE" property="feecode" jdbcType="VARCHAR" />
+    <result column="FEEDESC" property="feedesc" jdbcType="VARCHAR" />
+    <result column="ORDERID" property="orderid" jdbcType="VARCHAR" />
+    <result column="OTHERCUST_ID" property="othercustId" jdbcType="VARCHAR" />
+    <result column="OTHERBANKADDRNO" property="otherbankaddrno" jdbcType="VARCHAR" />
+    <result column="SRCCUST_ID" property="srccustId" jdbcType="VARCHAR" />
+    <result column="BANK_TYPE" property="bankType" jdbcType="VARCHAR" />
+    <result column="CHECK_STATE" property="checkState" jdbcType="VARCHAR" />
+    <result column="BANK_DATE" property="bankDate" jdbcType="VARCHAR" />
+    <result column="CREDITBATCHNO" property="creditbatchno" jdbcType="VARCHAR" />
+    <result column="VALIDDATE" property="validdate" jdbcType="VARCHAR" />
+    <result column="TIME_OUT_FLAG" property="timeOutFlag" jdbcType="CHAR" />
+    <result column="PAY_STATE" property="payState" jdbcType="CHAR" />
+    <result column="BANK_HANDLING_FEE" property="bankHandlingFee" jdbcType="DECIMAL" />
+    <result column="BANK_CARD_TYPE" property="bankCardType" jdbcType="VARCHAR" />
+    <result column="BANK_MERCHANT_ID" property="bankMerchantId" jdbcType="VARCHAR" />
+    <result column="AMOUNT" property="amount" jdbcType="DECIMAL" />
+    <result column="POOL_MERCHANT_ID" property="poolMerchantId" jdbcType="VARCHAR" />
+    <result column="BANK_PAY_SN" property="bankPaySn" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    BILLNOSN_SEQ, SN, CHANNELID, BANK_SEND_SN, TRAN_DATE, CHANNEL_BATCHNO, CHANNEL_DETAIL, 
+    BANK_RECV_SN, TRAN_TYPE, STATE, BATCHID, DETAILID, CHANNEL_RTNCODE, CHANNEL_RTNNOTE, 
+    SEND_TIME, RECV_TIME, ACTUAL_AMOUNT, CORPACCTNO, CORPBANKNO, CHECK_DATE, CORPACCTNAME, 
+    OTHERACCTNO, OTHERACCTNAME, OTHERBANKNO, FEECODE, FEEDESC, ORDERID, OTHERCUST_ID, 
+    OTHERBANKADDRNO, SRCCUST_ID, BANK_TYPE, CHECK_STATE, BANK_DATE, CREDITBATCHNO, VALIDDATE, 
+    TIME_OUT_FLAG, PAY_STATE, BANK_HANDLING_FEE, BANK_CARD_TYPE, BANK_MERCHANT_ID, AMOUNT, 
+    POOL_MERCHANT_ID, BANK_PAY_SN
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from BILLNO_SN
+    where BILLNOSN_SEQ = #{billnosnSeq,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from BILLNO_SN
+    where BILLNOSN_SEQ = #{billnosnSeq,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.dubbo.learn.domain.model.BillnoSn" >
+    insert into BILLNO_SN (BILLNOSN_SEQ, SN, CHANNELID, 
+      BANK_SEND_SN, TRAN_DATE, CHANNEL_BATCHNO, 
+      CHANNEL_DETAIL, BANK_RECV_SN, TRAN_TYPE, 
+      STATE, BATCHID, DETAILID, 
+      CHANNEL_RTNCODE, CHANNEL_RTNNOTE, SEND_TIME, 
+      RECV_TIME, ACTUAL_AMOUNT, CORPACCTNO, 
+      CORPBANKNO, CHECK_DATE, CORPACCTNAME, 
+      OTHERACCTNO, OTHERACCTNAME, OTHERBANKNO, 
+      FEECODE, FEEDESC, ORDERID, 
+      OTHERCUST_ID, OTHERBANKADDRNO, SRCCUST_ID, 
+      BANK_TYPE, CHECK_STATE, BANK_DATE, 
+      CREDITBATCHNO, VALIDDATE, TIME_OUT_FLAG, 
+      PAY_STATE, BANK_HANDLING_FEE, BANK_CARD_TYPE, 
+      BANK_MERCHANT_ID, AMOUNT, POOL_MERCHANT_ID, 
+      BANK_PAY_SN)
+    values (#{billnosnSeq,jdbcType=VARCHAR}, #{sn,jdbcType=VARCHAR}, #{channelid,jdbcType=VARCHAR}, 
+      #{bankSendSn,jdbcType=VARCHAR}, #{tranDate,jdbcType=VARCHAR}, #{channelBatchno,jdbcType=VARCHAR}, 
+      #{channelDetail,jdbcType=VARCHAR}, #{bankRecvSn,jdbcType=VARCHAR}, #{tranType,jdbcType=VARCHAR}, 
+      #{state,jdbcType=VARCHAR}, #{batchid,jdbcType=VARCHAR}, #{detailid,jdbcType=VARCHAR}, 
+      #{channelRtncode,jdbcType=VARCHAR}, #{channelRtnnote,jdbcType=VARCHAR}, #{sendTime,jdbcType=TIMESTAMP}, 
+      #{recvTime,jdbcType=TIMESTAMP}, #{actualAmount,jdbcType=DECIMAL}, #{corpacctno,jdbcType=VARCHAR}, 
+      #{corpbankno,jdbcType=VARCHAR}, #{checkDate,jdbcType=VARCHAR}, #{corpacctname,jdbcType=VARCHAR}, 
+      #{otheracctno,jdbcType=VARCHAR}, #{otheracctname,jdbcType=VARCHAR}, #{otherbankno,jdbcType=VARCHAR}, 
+      #{feecode,jdbcType=VARCHAR}, #{feedesc,jdbcType=VARCHAR}, #{orderid,jdbcType=VARCHAR}, 
+      #{othercustId,jdbcType=VARCHAR}, #{otherbankaddrno,jdbcType=VARCHAR}, #{srccustId,jdbcType=VARCHAR}, 
+      #{bankType,jdbcType=VARCHAR}, #{checkState,jdbcType=VARCHAR}, #{bankDate,jdbcType=VARCHAR}, 
+      #{creditbatchno,jdbcType=VARCHAR}, #{validdate,jdbcType=VARCHAR}, #{timeOutFlag,jdbcType=CHAR}, 
+      #{payState,jdbcType=CHAR}, #{bankHandlingFee,jdbcType=DECIMAL}, #{bankCardType,jdbcType=VARCHAR}, 
+      #{bankMerchantId,jdbcType=VARCHAR}, #{amount,jdbcType=DECIMAL}, #{poolMerchantId,jdbcType=VARCHAR}, 
+      #{bankPaySn,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dubbo.learn.domain.model.BillnoSn" >
+    insert into BILLNO_SN
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="billnosnSeq != null" >
+        BILLNOSN_SEQ,
+      </if>
+      <if test="sn != null" >
+        SN,
+      </if>
+      <if test="channelid != null" >
+        CHANNELID,
+      </if>
+      <if test="bankSendSn != null" >
+        BANK_SEND_SN,
+      </if>
+      <if test="tranDate != null" >
+        TRAN_DATE,
+      </if>
+      <if test="channelBatchno != null" >
+        CHANNEL_BATCHNO,
+      </if>
+      <if test="channelDetail != null" >
+        CHANNEL_DETAIL,
+      </if>
+      <if test="bankRecvSn != null" >
+        BANK_RECV_SN,
+      </if>
+      <if test="tranType != null" >
+        TRAN_TYPE,
+      </if>
+      <if test="state != null" >
+        STATE,
+      </if>
+      <if test="batchid != null" >
+        BATCHID,
+      </if>
+      <if test="detailid != null" >
+        DETAILID,
+      </if>
+      <if test="channelRtncode != null" >
+        CHANNEL_RTNCODE,
+      </if>
+      <if test="channelRtnnote != null" >
+        CHANNEL_RTNNOTE,
+      </if>
+      <if test="sendTime != null" >
+        SEND_TIME,
+      </if>
+      <if test="recvTime != null" >
+        RECV_TIME,
+      </if>
+      <if test="actualAmount != null" >
+        ACTUAL_AMOUNT,
+      </if>
+      <if test="corpacctno != null" >
+        CORPACCTNO,
+      </if>
+      <if test="corpbankno != null" >
+        CORPBANKNO,
+      </if>
+      <if test="checkDate != null" >
+        CHECK_DATE,
+      </if>
+      <if test="corpacctname != null" >
+        CORPACCTNAME,
+      </if>
+      <if test="otheracctno != null" >
+        OTHERACCTNO,
+      </if>
+      <if test="otheracctname != null" >
+        OTHERACCTNAME,
+      </if>
+      <if test="otherbankno != null" >
+        OTHERBANKNO,
+      </if>
+      <if test="feecode != null" >
+        FEECODE,
+      </if>
+      <if test="feedesc != null" >
+        FEEDESC,
+      </if>
+      <if test="orderid != null" >
+        ORDERID,
+      </if>
+      <if test="othercustId != null" >
+        OTHERCUST_ID,
+      </if>
+      <if test="otherbankaddrno != null" >
+        OTHERBANKADDRNO,
+      </if>
+      <if test="srccustId != null" >
+        SRCCUST_ID,
+      </if>
+      <if test="bankType != null" >
+        BANK_TYPE,
+      </if>
+      <if test="checkState != null" >
+        CHECK_STATE,
+      </if>
+      <if test="bankDate != null" >
+        BANK_DATE,
+      </if>
+      <if test="creditbatchno != null" >
+        CREDITBATCHNO,
+      </if>
+      <if test="validdate != null" >
+        VALIDDATE,
+      </if>
+      <if test="timeOutFlag != null" >
+        TIME_OUT_FLAG,
+      </if>
+      <if test="payState != null" >
+        PAY_STATE,
+      </if>
+      <if test="bankHandlingFee != null" >
+        BANK_HANDLING_FEE,
+      </if>
+      <if test="bankCardType != null" >
+        BANK_CARD_TYPE,
+      </if>
+      <if test="bankMerchantId != null" >
+        BANK_MERCHANT_ID,
+      </if>
+      <if test="amount != null" >
+        AMOUNT,
+      </if>
+      <if test="poolMerchantId != null" >
+        POOL_MERCHANT_ID,
+      </if>
+      <if test="bankPaySn != null" >
+        BANK_PAY_SN,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="billnosnSeq != null" >
+        #{billnosnSeq,jdbcType=VARCHAR},
+      </if>
+      <if test="sn != null" >
+        #{sn,jdbcType=VARCHAR},
+      </if>
+      <if test="channelid != null" >
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="bankSendSn != null" >
+        #{bankSendSn,jdbcType=VARCHAR},
+      </if>
+      <if test="tranDate != null" >
+        #{tranDate,jdbcType=VARCHAR},
+      </if>
+      <if test="channelBatchno != null" >
+        #{channelBatchno,jdbcType=VARCHAR},
+      </if>
+      <if test="channelDetail != null" >
+        #{channelDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="bankRecvSn != null" >
+        #{bankRecvSn,jdbcType=VARCHAR},
+      </if>
+      <if test="tranType != null" >
+        #{tranType,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="batchid != null" >
+        #{batchid,jdbcType=VARCHAR},
+      </if>
+      <if test="detailid != null" >
+        #{detailid,jdbcType=VARCHAR},
+      </if>
+      <if test="channelRtncode != null" >
+        #{channelRtncode,jdbcType=VARCHAR},
+      </if>
+      <if test="channelRtnnote != null" >
+        #{channelRtnnote,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTime != null" >
+        #{sendTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recvTime != null" >
+        #{recvTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="actualAmount != null" >
+        #{actualAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="corpacctno != null" >
+        #{corpacctno,jdbcType=VARCHAR},
+      </if>
+      <if test="corpbankno != null" >
+        #{corpbankno,jdbcType=VARCHAR},
+      </if>
+      <if test="checkDate != null" >
+        #{checkDate,jdbcType=VARCHAR},
+      </if>
+      <if test="corpacctname != null" >
+        #{corpacctname,jdbcType=VARCHAR},
+      </if>
+      <if test="otheracctno != null" >
+        #{otheracctno,jdbcType=VARCHAR},
+      </if>
+      <if test="otheracctname != null" >
+        #{otheracctname,jdbcType=VARCHAR},
+      </if>
+      <if test="otherbankno != null" >
+        #{otherbankno,jdbcType=VARCHAR},
+      </if>
+      <if test="feecode != null" >
+        #{feecode,jdbcType=VARCHAR},
+      </if>
+      <if test="feedesc != null" >
+        #{feedesc,jdbcType=VARCHAR},
+      </if>
+      <if test="orderid != null" >
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="othercustId != null" >
+        #{othercustId,jdbcType=VARCHAR},
+      </if>
+      <if test="otherbankaddrno != null" >
+        #{otherbankaddrno,jdbcType=VARCHAR},
+      </if>
+      <if test="srccustId != null" >
+        #{srccustId,jdbcType=VARCHAR},
+      </if>
+      <if test="bankType != null" >
+        #{bankType,jdbcType=VARCHAR},
+      </if>
+      <if test="checkState != null" >
+        #{checkState,jdbcType=VARCHAR},
+      </if>
+      <if test="bankDate != null" >
+        #{bankDate,jdbcType=VARCHAR},
+      </if>
+      <if test="creditbatchno != null" >
+        #{creditbatchno,jdbcType=VARCHAR},
+      </if>
+      <if test="validdate != null" >
+        #{validdate,jdbcType=VARCHAR},
+      </if>
+      <if test="timeOutFlag != null" >
+        #{timeOutFlag,jdbcType=CHAR},
+      </if>
+      <if test="payState != null" >
+        #{payState,jdbcType=CHAR},
+      </if>
+      <if test="bankHandlingFee != null" >
+        #{bankHandlingFee,jdbcType=DECIMAL},
+      </if>
+      <if test="bankCardType != null" >
+        #{bankCardType,jdbcType=VARCHAR},
+      </if>
+      <if test="bankMerchantId != null" >
+        #{bankMerchantId,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null" >
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="poolMerchantId != null" >
+        #{poolMerchantId,jdbcType=VARCHAR},
+      </if>
+      <if test="bankPaySn != null" >
+        #{bankPaySn,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dubbo.learn.domain.model.BillnoSn" >
+    update BILLNO_SN
+    <set >
+      <if test="sn != null" >
+        SN = #{sn,jdbcType=VARCHAR},
+      </if>
+      <if test="channelid != null" >
+        CHANNELID = #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="bankSendSn != null" >
+        BANK_SEND_SN = #{bankSendSn,jdbcType=VARCHAR},
+      </if>
+      <if test="tranDate != null" >
+        TRAN_DATE = #{tranDate,jdbcType=VARCHAR},
+      </if>
+      <if test="channelBatchno != null" >
+        CHANNEL_BATCHNO = #{channelBatchno,jdbcType=VARCHAR},
+      </if>
+      <if test="channelDetail != null" >
+        CHANNEL_DETAIL = #{channelDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="bankRecvSn != null" >
+        BANK_RECV_SN = #{bankRecvSn,jdbcType=VARCHAR},
+      </if>
+      <if test="tranType != null" >
+        TRAN_TYPE = #{tranType,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        STATE = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="batchid != null" >
+        BATCHID = #{batchid,jdbcType=VARCHAR},
+      </if>
+      <if test="detailid != null" >
+        DETAILID = #{detailid,jdbcType=VARCHAR},
+      </if>
+      <if test="channelRtncode != null" >
+        CHANNEL_RTNCODE = #{channelRtncode,jdbcType=VARCHAR},
+      </if>
+      <if test="channelRtnnote != null" >
+        CHANNEL_RTNNOTE = #{channelRtnnote,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTime != null" >
+        SEND_TIME = #{sendTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recvTime != null" >
+        RECV_TIME = #{recvTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="actualAmount != null" >
+        ACTUAL_AMOUNT = #{actualAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="corpacctno != null" >
+        CORPACCTNO = #{corpacctno,jdbcType=VARCHAR},
+      </if>
+      <if test="corpbankno != null" >
+        CORPBANKNO = #{corpbankno,jdbcType=VARCHAR},
+      </if>
+      <if test="checkDate != null" >
+        CHECK_DATE = #{checkDate,jdbcType=VARCHAR},
+      </if>
+      <if test="corpacctname != null" >
+        CORPACCTNAME = #{corpacctname,jdbcType=VARCHAR},
+      </if>
+      <if test="otheracctno != null" >
+        OTHERACCTNO = #{otheracctno,jdbcType=VARCHAR},
+      </if>
+      <if test="otheracctname != null" >
+        OTHERACCTNAME = #{otheracctname,jdbcType=VARCHAR},
+      </if>
+      <if test="otherbankno != null" >
+        OTHERBANKNO = #{otherbankno,jdbcType=VARCHAR},
+      </if>
+      <if test="feecode != null" >
+        FEECODE = #{feecode,jdbcType=VARCHAR},
+      </if>
+      <if test="feedesc != null" >
+        FEEDESC = #{feedesc,jdbcType=VARCHAR},
+      </if>
+      <if test="orderid != null" >
+        ORDERID = #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="othercustId != null" >
+        OTHERCUST_ID = #{othercustId,jdbcType=VARCHAR},
+      </if>
+      <if test="otherbankaddrno != null" >
+        OTHERBANKADDRNO = #{otherbankaddrno,jdbcType=VARCHAR},
+      </if>
+      <if test="srccustId != null" >
+        SRCCUST_ID = #{srccustId,jdbcType=VARCHAR},
+      </if>
+      <if test="bankType != null" >
+        BANK_TYPE = #{bankType,jdbcType=VARCHAR},
+      </if>
+      <if test="checkState != null" >
+        CHECK_STATE = #{checkState,jdbcType=VARCHAR},
+      </if>
+      <if test="bankDate != null" >
+        BANK_DATE = #{bankDate,jdbcType=VARCHAR},
+      </if>
+      <if test="creditbatchno != null" >
+        CREDITBATCHNO = #{creditbatchno,jdbcType=VARCHAR},
+      </if>
+      <if test="validdate != null" >
+        VALIDDATE = #{validdate,jdbcType=VARCHAR},
+      </if>
+      <if test="timeOutFlag != null" >
+        TIME_OUT_FLAG = #{timeOutFlag,jdbcType=CHAR},
+      </if>
+      <if test="payState != null" >
+        PAY_STATE = #{payState,jdbcType=CHAR},
+      </if>
+      <if test="bankHandlingFee != null" >
+        BANK_HANDLING_FEE = #{bankHandlingFee,jdbcType=DECIMAL},
+      </if>
+      <if test="bankCardType != null" >
+        BANK_CARD_TYPE = #{bankCardType,jdbcType=VARCHAR},
+      </if>
+      <if test="bankMerchantId != null" >
+        BANK_MERCHANT_ID = #{bankMerchantId,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null" >
+        AMOUNT = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="poolMerchantId != null" >
+        POOL_MERCHANT_ID = #{poolMerchantId,jdbcType=VARCHAR},
+      </if>
+      <if test="bankPaySn != null" >
+        BANK_PAY_SN = #{bankPaySn,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where BILLNOSN_SEQ = #{billnosnSeq,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dubbo.learn.domain.model.BillnoSn" >
+    update BILLNO_SN
+    set SN = #{sn,jdbcType=VARCHAR},
+      CHANNELID = #{channelid,jdbcType=VARCHAR},
+      BANK_SEND_SN = #{bankSendSn,jdbcType=VARCHAR},
+      TRAN_DATE = #{tranDate,jdbcType=VARCHAR},
+      CHANNEL_BATCHNO = #{channelBatchno,jdbcType=VARCHAR},
+      CHANNEL_DETAIL = #{channelDetail,jdbcType=VARCHAR},
+      BANK_RECV_SN = #{bankRecvSn,jdbcType=VARCHAR},
+      TRAN_TYPE = #{tranType,jdbcType=VARCHAR},
+      STATE = #{state,jdbcType=VARCHAR},
+      BATCHID = #{batchid,jdbcType=VARCHAR},
+      DETAILID = #{detailid,jdbcType=VARCHAR},
+      CHANNEL_RTNCODE = #{channelRtncode,jdbcType=VARCHAR},
+      CHANNEL_RTNNOTE = #{channelRtnnote,jdbcType=VARCHAR},
+      SEND_TIME = #{sendTime,jdbcType=TIMESTAMP},
+      RECV_TIME = #{recvTime,jdbcType=TIMESTAMP},
+      ACTUAL_AMOUNT = #{actualAmount,jdbcType=DECIMAL},
+      CORPACCTNO = #{corpacctno,jdbcType=VARCHAR},
+      CORPBANKNO = #{corpbankno,jdbcType=VARCHAR},
+      CHECK_DATE = #{checkDate,jdbcType=VARCHAR},
+      CORPACCTNAME = #{corpacctname,jdbcType=VARCHAR},
+      OTHERACCTNO = #{otheracctno,jdbcType=VARCHAR},
+      OTHERACCTNAME = #{otheracctname,jdbcType=VARCHAR},
+      OTHERBANKNO = #{otherbankno,jdbcType=VARCHAR},
+      FEECODE = #{feecode,jdbcType=VARCHAR},
+      FEEDESC = #{feedesc,jdbcType=VARCHAR},
+      ORDERID = #{orderid,jdbcType=VARCHAR},
+      OTHERCUST_ID = #{othercustId,jdbcType=VARCHAR},
+      OTHERBANKADDRNO = #{otherbankaddrno,jdbcType=VARCHAR},
+      SRCCUST_ID = #{srccustId,jdbcType=VARCHAR},
+      BANK_TYPE = #{bankType,jdbcType=VARCHAR},
+      CHECK_STATE = #{checkState,jdbcType=VARCHAR},
+      BANK_DATE = #{bankDate,jdbcType=VARCHAR},
+      CREDITBATCHNO = #{creditbatchno,jdbcType=VARCHAR},
+      VALIDDATE = #{validdate,jdbcType=VARCHAR},
+      TIME_OUT_FLAG = #{timeOutFlag,jdbcType=CHAR},
+      PAY_STATE = #{payState,jdbcType=CHAR},
+      BANK_HANDLING_FEE = #{bankHandlingFee,jdbcType=DECIMAL},
+      BANK_CARD_TYPE = #{bankCardType,jdbcType=VARCHAR},
+      BANK_MERCHANT_ID = #{bankMerchantId,jdbcType=VARCHAR},
+      AMOUNT = #{amount,jdbcType=DECIMAL},
+      POOL_MERCHANT_ID = #{poolMerchantId,jdbcType=VARCHAR},
+      BANK_PAY_SN = #{bankPaySn,jdbcType=VARCHAR}
+    where BILLNOSN_SEQ = #{billnosnSeq,jdbcType=VARCHAR}
+  </update>
+</mapper>
